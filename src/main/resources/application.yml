@@ -1,0 +1,38 @@
+#服务器配置
+server:
+    port: 8080
+
+
+spring:
+    #数据源配置
+    datasource:
+        url: jdbc:mysql://localhost:3306/data_import?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&useCompression=true&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 8
+        max-idle: 8
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    #springmvc配置
+#    mvc:
+#        view:
+#            prefix: /templates/
+#            suffix: .jsp
+
+
+#文件上传配置
+multipart:
+     enabled: true
+     #location:
+     #max-file-size： xMb
